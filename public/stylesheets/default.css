@@ -1,0 +1,18 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #DDFFDD;
+}
+
+a {
+  color: #00B7FF;
+}
+#uploaderForm {
+	width: 24em;
+	background-color: #FFFFFF;
+	padding: .4em;
+	border-style: solid;
+	border-color: #BBDDBB;
+	border-width: .1em;
+	border-radius: .2em;
+}
