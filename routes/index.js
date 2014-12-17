@@ -20,7 +20,7 @@ router.post("/uploader", function(req, res, next){
 			} 
 		}); 
 	}
-	else { console.log(res.files) }
+	else { console.log(req.files) }
 });
 
 module.exports = router;
