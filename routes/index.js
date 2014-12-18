@@ -1,26 +1,29 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
 
-/* GET home page. */
+router.use(multer({ dest: './uploads/',
+ rename: function (fieldname, filename) {
+    return filename+Date.now();
+  },
+ onFileUploadStart: function (file) {
+  console.log(file.originalname + ' is starting ...')
+},
+ onFileUploadComplete: function (file) {
+  console.log(file.fieldname + ' uploaded to  ' + file.path)
+}
+}));
+
+
+ //GET home page. 
 router.get('/', function(req, res) {
   res.render('index', { title: 'default!' });
 });
 
-router.post("/uploader", function(req, res, next){
-	if (req.files) { 
-		console.log(util.inspect(req.files));
-		if (req.files.myFile.size === 0) {
-		            return next(new Error("Hey, first would you select a file?"));
-		}
-		fs.exists(req.files.myFile.path, function(exists) { 
-			if(exists) { 
-				res.end("Got your file!"); 
-			} else { 
-				res.end("Well, there is no magic for those who don’t believe in it!"); 
-			} 
-		}); 
-	}
-	else { console.log(req.files) }
+router.post('/',function(req,res){
+  console.log(req.files);
+  res.end("File uploaded.");
 });
+
 
 module.exports = router;

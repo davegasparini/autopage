@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
+
 var util = require("util"); 
 var fs = require("fs"); 
 
-/* GET uploader page. */
+// GET uploader page. 
 router.get('/', function(req, res) {
-  res.render('uploader', { title: 'uploader!' });
+  res.render('uploadView', { title: 'uploader!' });
 });
 
-router.post("/upload", function(req, res, next){ 
+router.post("/uploader", function(req, res, next){ 
 	if (req.files) { 
 		console.log(util.inspect(req.files));
 		if (req.files.myFile.size === 0) {
@@ -22,6 +23,7 @@ router.post("/upload", function(req, res, next){
 			} 
 		}); 
 	} 
+	else { console.log("uploader Post!") }
 });
 
 module.exports = router;

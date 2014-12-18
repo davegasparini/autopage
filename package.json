@@ -6,14 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "*",
     "cookie-parser": "*",
     "debug": "*",
     "ejs": "*",
     "express": "*",
+    "favicon": "0.0.2",
     "fileupload": "*",
     "morgan": "*",
-    "multer": "^0.1.6",
-    "static-favicon": "*"
+    "multer": "^0.1.6"
   }
 }
